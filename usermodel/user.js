@@ -6,6 +6,7 @@ const UserSchema = new Schema({
   googleID: String
 });
 
+//puts the schema into the users
 mongoose.model("users", UserSchema);
 
 //creating model class

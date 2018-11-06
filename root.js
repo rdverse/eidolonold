@@ -1,5 +1,6 @@
 const express = require("express");
 //to execute passportfile
+require("./allservices/passport");
 const mongoose = require("mongoose");
 const keys = require("./config/key");
 require("./usermodel/user");
