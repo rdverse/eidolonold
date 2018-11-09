@@ -1,9 +1,10 @@
 const express = require("express");
-//to execute passportfile
-require("./allservices/passport");
-const mongoose = require("mongoose");
 const keys = require("./config/key");
+const mongoose = require("mongoose");
+
+//to execute passportfile
 require("./usermodel/user");
+require("./allservices/passport");
 
 mongoose.connect(keys.mongouri);
 
