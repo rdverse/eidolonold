@@ -1,14 +1,25 @@
 const express = require("express");
-const keys = require("./config/key");
 const mongoose = require("mongoose");
-
-//to execute passportfile
+//for cookies
+const CookieSession = require("cookie-session");
+const passport = require("passport");
+const keys = require("./config/key");
 require("./usermodel/user");
+//to execute passportfile
 require("./allservices/passport");
 
 mongoose.connect(keys.mongouri);
 
 const app = express();
+app.use(
+  CookieSession({
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    //can include multiple keys
+    keys: [keys.CookieKey]
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 require("./routes/authroutes.js")(app);
 
