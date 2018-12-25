@@ -15,15 +15,16 @@ const keys = require("../config/key.js");
 //in redirect uri- enter localhost:5000/auth/google/callback
 
 //userprof object is a model class now, we can use this a model instance
-const userprof = mongoose.model("userprof");
+const theuser = mongoose.model("userprof");
 //serialize cookie with mongo id
 passport.serializeUser((user, done) => {
-  //this id is not profile id
+  //this id is not profile id//id generated my mongo for fb,google,linkdn etc
   done(null, user.id);
 });
 //turn cookie back into user
 passport.deserializeUser((id, done) => {
-  userprof.findById(id).then(user => {
+  theuser.findById(id).then(user => {
+    //return only unique user with the id given
     done(null, user);
   });
 });
@@ -36,15 +37,17 @@ passport.use(
       callbackURL: "/auth/google/callback"
     },
     (accessToken, refreshToken, profile, done) => {
+      //console.log("profile", profile);
       //create a promise
-      userprof.findOne({ googleID: profile.id }).then(userexists => {
-        if (userexits) {
+      console.log(theuser.findOne({ googleID: profile.id }));
+      theuser.findOne({ googleID: profile.id }).then((userexists, err) => {
+        if (userexists) {
           done(null, userexits);
           //sthere is already a user recorded
         } else {
           //user doesnt exist
           //create a new user and save it in mongodb
-          new userprof({ googleID: profile.id })
+          new theuser({ googleID: profile.id })
             .save()
             .then(user => done(null, user));
         }

@@ -6,6 +6,7 @@ const { Schema } = mongoose;
 
 const UserSchema = new Schema({
   googleID: String
+  //type is String
 });
 
 mongoose.model("userprof", UserSchema);
