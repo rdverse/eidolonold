@@ -1,24 +1,22 @@
 {
-  "name": "server",
+  "name": "eidolon",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-    "node": "10.8.0",
-    "npm": "6.3.0"
-  },
   "scripts": {
-    "start": "node root.js",
-    "restart": "nodemon root.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReDevVerse/eidolon.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReDevVerse/eidolon/issues"
+  },
+  "homepage": "https://github.com/ReDevVerse/eidolon#readme",
   "dependencies": {
-    "cookie-session": "^2.0.0-beta.3",
-    "express": "^4.16.3",
-    "mongoose": "^5.3.9",
-    "nodemon": "^1.18.5",
-    "passport": "^0.4.0",
-    "passport-google-oauth20": "^1.0.0"
+    "express": "^4.17.1"
   }
 }
