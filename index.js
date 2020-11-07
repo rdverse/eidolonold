@@ -5,7 +5,7 @@ const app = express();
 
 // define route handler
 app.get('/', (req, res) => {
-    res.send({hi : 'there'});
+    res.send({Hi : 'TiiiiiiingYuuuuuuuuun'});
 });
 
 // Get the environment variable port from heroku
