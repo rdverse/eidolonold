@@ -1,4 +1,0 @@
-module.exports{
-    googleClientID : '120822467281-e0422oel9d68jci6tj6sjri9lon658fk.apps.googleusercontent.com',
-    googleClientSecret: 'uy4NbUqF3Qx5XKq3-qPkmlNJ'
-};
